@@ -1,0 +1,25 @@
+extends layout
+block content
+  .row.page-header
+    .col-lg-12
+      h1= pageHeader.title
+  .row
+    .col-xs-12
+      .row
+        .col-xs-12
+          p Instructor: #{classInfo.instructor}
+          p Location: #{classInfo.location}
+          p Credits: #{classInfo.credits}
+          p
+            a.btn.btn-default(href='/class/assignment/new') Add Assignment
+      .row
+        .col-xs-12
+          each assignment in assignments
+            .panel.panel-primary
+              .panel-heading
+                h2.panel-title= assignment.name
+              .panel-body
+                .row
+                  p Due: #{assignment.due}
+                  p Points: #{assignment.value}
+                  p Status: #{assignment.status}
